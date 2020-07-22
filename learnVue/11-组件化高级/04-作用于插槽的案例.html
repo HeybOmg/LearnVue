@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+<!--    目的获取子组件中的myLady-->
+    <template slot-scope="slot">
+<!--      <span v-for="item in slot.data">{{item}}*</span>-->
+      <span>{{slot.data.join('-')}}</span>
+    </template>
+  </cpn>
+
+  <cpn>
+<!--    目的获取子组件中的myLady-->
+    <template slot-scope="slot">
+<!--      <span v-for="item in slot.data">{{item}}*</span>-->
+      <span>{{slot.data.join('*')}}</span>
+    </template>
+  </cpn>
+
+
+</div>
+<template id="cpn">
+  <div>
+    <slot :data="myLady">
+      <ul>
+        <li v-for="item in myLady">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app =new Vue({
+    el:'#app',
+    data:{
+      message:'hello Lisa ！',
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return {
+            myLady:['Britney','Lisa','Halsey','Emma','Katy','Rihanna']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

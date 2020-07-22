@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn v-bind:csongs="songs" :cladys="ladys"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for=" item in cladys">{{item}}</li>
+      <li v-for=" item in csongs">{{item}}</li>
+    </ul>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  // 父传子:props
+  const cpn ={
+    template:'#cpn',
+    // props:['cladys','csongs'],
+    props:{
+      // 1.类型限制
+      // cladys:Array,
+      // csongs:Array
+
+      // 2.提供一些默认值,以及必传值
+      //类型是对象或者数组的时候，默认值必须是一个函数
+      cladys:{
+        type:Array,
+        default(){
+          return[]
+        },
+        required:true
+      },
+      csongs:{
+        type:Array,
+        default(){
+          return[]
+        },
+      }
+    },
+    data(){
+      return {}
+    },
+    methods:{
+
+    }
+  }
+
+  const app =new Vue({
+    el:'#app',
+    data:{
+      songs:['Circus','Without Me','Kill this love'],
+      ladys:['Lisa','Halsey','Emma','Britney','Katy']
+    },
+    components:{
+      cpn
+    }
+  })
+</script>
+</body>
+</html>

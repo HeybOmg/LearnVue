@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id ="app">{{message}}
+    <ul>
+        <li v-for="item in guns">{{item}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'Lisa',
+            guns:['M4A1','AK47','Mini','Scar-l']
+        }
+    })
+    var a={
+        x:1,
+        valueOf:function () {
+            return this.x+1;
+
+        },
+        toString:function () {
+            return this.x;
+        }
+    };
+    console.log(String(a));
+    console.log(Number(a));
+    console.log(a+1);
+    alert(a)
+</script>
+</body>
+</html>

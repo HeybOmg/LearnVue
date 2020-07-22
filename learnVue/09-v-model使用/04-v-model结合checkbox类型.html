@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.checkbox单选框-->
+  <label for="agree">
+    <input type="checkbox" id="agree" v-model="isAgree">同意
+  </label>
+  <h2>你选择的是：{{isAgree}}</h2>
+  <button :disabled="!isAgree">下一步</button>
+  <hr>
+<!--  2.checkbox多选框-->
+  <input type="checkbox" value="Lisa" v-model="myLady">Lisa
+  <input type="checkbox" value="Halsey" v-model="myLady">Halsey
+  <input type="checkbox" value="Emma" v-model="myLady">Emma
+  <input type="checkbox" value="Britney" v-model="myLady">Britney
+  <input type="checkbox" value="Katy" v-model="myLady">Katy
+  <h2>Your ladys : {{myLady}}</h2>
+
+  <label v-for="item in originLadys" :for="item">
+    <input type="checkbox" :value="item" :id="item" v-model="myLady">{{item}}
+  </label>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app =new Vue({
+    el:'#app',
+    data:{
+      message:'hello Lisa ！',
+      isAgree:false,
+      myLady:[],
+      originLadys:['Lisa','Halsey','Emma','Britney','Katy']
+    }
+  })
+</script>
+</body>
+</html>

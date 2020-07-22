@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2 v-if="kills>=60">Holy shit</h2>
+  <h2 v-else-if="kills>=20">Monster kill</h2>
+  <h2 v-else>Dead ghost</h2>
+  <h1>{{result}}</h1>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app =new Vue({
+    el:'#app',
+    data:{
+      kills:99
+    },
+    computed:{
+      result(){
+        let killNum='';
+        if(this.kills>=60){
+          killNum='Holy shit'
+        }else if (this.kills>=20){
+          killNum='Monster kill'
+        }else {
+          killNum='Dead ghost'
+        }
+        return killNum
+      }
+    }
+  })
+</script>
+</body>
+</html>

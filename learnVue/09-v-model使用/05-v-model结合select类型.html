@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.选择1个-->
+  <select name="myLady" v-model="lady" >
+    <option value="Lisa" >Lisa</option>
+    <option value="Halsey">Halsey</option>
+    <option value="Emma">Emma</option>
+    <option value="Britney">Britney</option>
+    <option value="Katy">Katy</option>
+  </select>
+  <h2>你选择的是：{{lady}}</h2>
+
+<!--  2.选择多个-->
+  <select name="myLadys" v-model="ladys" multiple>
+    <option value="Lisa" >Lisa</option>
+    <option value="Halsey">Halsey</option>
+    <option value="Emma">Emma</option>
+    <option value="Britney">Britney</option>
+  </select>
+  <h2>你选择的是：{{ladys}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app =new Vue({
+    el:'#app',
+    data:{
+      message:'hello Lisa ！',
+      lady:'Lisa',
+      ladys:[],
+    }
+  })
+</script>
+</body>
+</html>
